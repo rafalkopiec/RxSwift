@@ -14,7 +14,7 @@ import RxSwift
 /**
  iOS only
  */
-#if os(iOS) || os(visionOS) || os(xrOS)
+#if os(iOS)
 extension Reactive where Base: UITabBar {
 
     /// Reactive wrapper for `delegate` message `tabBar(_:willBeginCustomizing:)`.
