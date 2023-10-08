@@ -7,7 +7,7 @@
 //
 
 
-#if os(iOS)
+#if os(iOS) || os(visionOS) || os(xrOS)
     
     import RxSwift
     import RxCocoa

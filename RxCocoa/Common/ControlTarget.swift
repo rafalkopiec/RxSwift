@@ -6,11 +6,11 @@
 //  Copyright © 2015 Krunoslav Zaher. All rights reserved.
 //
 
-#if os(iOS) || os(tvOS) || os(macOS)
+#if os(iOS) || os(visionOS) || os(xrOS) || os(tvOS) || os(macOS)
 
 import RxSwift
 
-#if os(iOS) || os(tvOS)
+#if os(iOS) || os(visionOS) || os(xrOS) || os(tvOS)
     import UIKit
 
     typealias Control = UIKit.UIControl
@@ -27,11 +27,11 @@ final class ControlTarget: RxTarget {
     let selector: Selector = #selector(ControlTarget.eventHandler(_:))
 
     weak var control: Control?
-#if os(iOS) || os(tvOS)
+#if os(iOS) || os(visionOS) || os(xrOS) || os(tvOS)
     let controlEvents: UIControl.Event
 #endif
     var callback: Callback?
-    #if os(iOS) || os(tvOS)
+    #if os(iOS) || os(visionOS) || os(xrOS) || os(tvOS)
     init(control: Control, controlEvents: UIControl.Event, callback: @escaping Callback) {
         MainScheduler.ensureRunningOnMainThread()
 
@@ -75,7 +75,7 @@ final class ControlTarget: RxTarget {
 
     override func dispose() {
         super.dispose()
-#if os(iOS) || os(tvOS)
+#if os(iOS) || os(visionOS) || os(xrOS) || os(tvOS)
         self.control?.removeTarget(self, action: self.selector, for: self.controlEvents)
 #elseif os(macOS)
         self.control?.target = nil

@@ -88,7 +88,7 @@ class GitHubSearchRepositoriesViewController: ViewController, UITableViewDelegat
 
                 let message = "Exceeded limit of 10 non authenticated requests per minute for GitHub API. Please wait a minute. :(\nhttps://developer.github.com/v3/#rate-limiting"
 
-                #if os(iOS)
+                #if os(iOS) || os(visionOS) || os(xrOS)
                 self.present(UIAlertController(title: "RxExample", message: message, preferredStyle: .alert), animated: true)
                 #elseif os(macOS)
                 let alert = NSAlert()

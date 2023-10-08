@@ -60,7 +60,7 @@ extension DelegateProxyTest {
     }
 }
 
-#if os(iOS)
+#if os(iOS) || os(visionOS) || os(xrOS)
 extension DelegateProxyTest {
     func test_UISearchBarDelegateExtension() {
         performDelegateTest(UISearchBarSubclass(frame: CGRect.zero)) { ExtendSearchBarDelegateProxy(searchBarSubclass: $0) }
@@ -74,7 +74,7 @@ extension DelegateProxyTest {
     }
 }
 
-#if os(iOS)
+#if os(iOS) || os(visionOS) || os(xrOS)
 extension DelegateProxyTest {
     func test_UISearchController() {
         performDelegateTest(UISearchControllerSubclass()) { ExtendSearchControllerDelegateProxy(searchControllerSubclass: $0) }
@@ -317,7 +317,7 @@ final class UIScrollViewSubclass
     }
 }
 
-#if os(iOS)
+#if os(iOS) || os(visionOS) || os(xrOS)
 final class ExtendSearchBarDelegateProxy
     : RxSearchBarDelegateProxy
     , TestDelegateProtocol {
@@ -372,7 +372,7 @@ final class UITextViewSubclass
         RxScrollViewDelegateProxy.installForwardDelegate(testDelegate, retainDelegate: false, onProxyForObject: self)
     }
 }
-#if os(iOS)
+#if os(iOS) || os(visionOS) || os(xrOS)
 final class ExtendSearchControllerDelegateProxy
     : RxSearchControllerDelegateProxy
     , TestDelegateProtocol {

@@ -9,7 +9,7 @@
 import XCTest
 import RxSwift
 import RxCocoa
-#if os(iOS)
+#if os(iOS) || os(visionOS) || os(xrOS)
 import UIKit
 #endif
 
@@ -370,7 +370,7 @@ extension DelegateProxyTest {
     }
 }
 
-#if os(iOS)
+#if os(iOS) || os(visionOS) || os(xrOS)
 extension DelegateProxyTest {
     func test_DelegateProxyHierarchyWorks() {
         let tableView = UITableView()
@@ -715,7 +715,7 @@ extension MockTestDelegateProtocol
     }
 #endif
 
-#if os(iOS)
+#if os(iOS) || os(visionOS) || os(xrOS)
 extension MockTestDelegateProtocol: UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         fatalError()
@@ -727,7 +727,7 @@ extension MockTestDelegateProtocol: UIPickerViewDataSource {
 }
 #endif
 
-#if os(iOS) || os(tvOS)
+#if os(iOS) || os(visionOS) || os(xrOS) || os(tvOS)
 extension MockTestDelegateProtocol
     : UICollectionViewDataSource
     , UICollectionViewDataSourcePrefetching
@@ -768,7 +768,7 @@ extension MockTestDelegateProtocol
 }
 #endif
 
-#if os(iOS)
+#if os(iOS) || os(visionOS) || os(xrOS)
 extension MockTestDelegateProtocol
     : UIPickerViewDelegate
 {

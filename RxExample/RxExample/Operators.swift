@@ -8,7 +8,7 @@
 
 import RxSwift
 import RxCocoa
-#if os(iOS)
+#if os(iOS) || os(visionOS) || os(xrOS)
 import UIKit
 #elseif os(macOS)
 import AppKit
@@ -18,7 +18,7 @@ import AppKit
 
 infix operator <-> : DefaultPrecedence
 
-#if os(iOS)
+#if os(iOS) || os(visionOS) || os(xrOS)
 func nonMarkedText(_ textInput: UITextInput) -> String? {
     let start = textInput.beginningOfDocument
     let end = textInput.endOfDocument

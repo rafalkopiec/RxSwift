@@ -8,7 +8,7 @@
 
 import RxSwift
 
-#if os(iOS)
+#if os(iOS) || os(visionOS) || os(xrOS)
     import UIKit
     typealias OSViewController = UIViewController
 #elseif os(macOS)

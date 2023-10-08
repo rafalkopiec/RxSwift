@@ -6,7 +6,7 @@
 //  Copyright © 2017 kzaher. All rights reserved.
 //
 
-#if os(iOS)
+#if os(iOS) || os(visionOS) || os(xrOS)
 
 import Foundation
 import UIKit

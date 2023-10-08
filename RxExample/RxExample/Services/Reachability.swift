@@ -243,7 +243,7 @@ private extension Reachability {
     }
     
     var isOnWWANFlagSet: Bool {
-        #if os(iOS)
+        #if os(iOS) || os(visionOS) || os(xrOS)
             return reachabilityFlags.contains(.isWWAN)
         #else
             return false

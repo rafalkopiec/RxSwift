@@ -37,7 +37,7 @@ extension Reactive where Base: CLLocationManager {
         RxCLLocationManagerDelegateProxy.proxy(for: base).didFailWithErrorSubject.asObservable()
     }
 
-    #if os(iOS) || os(macOS)
+    #if os(iOS) || os(visionOS) || os(xrOS) || os(macOS)
     /**
     Reactive wrapper for `delegate` message.
     */
@@ -49,7 +49,7 @@ extension Reactive where Base: CLLocationManager {
     }
     #endif
 
-    #if os(iOS)
+    #if os(iOS) || os(visionOS) || os(xrOS)
 
     // MARK: Pausing Location Updates
 
@@ -109,7 +109,7 @@ extension Reactive where Base: CLLocationManager {
 
     #endif
 
-    #if os(iOS) || os(macOS)
+    #if os(iOS) || os(visionOS) || os(xrOS) || os(macOS)
 
     /**
     Reactive wrapper for `delegate` message.
@@ -149,7 +149,7 @@ extension Reactive where Base: CLLocationManager {
 
     #endif
 
-    #if os(iOS)
+    #if os(iOS) || os(visionOS) || os(xrOS)
 
     // MARK: Responding to Ranging Events
 

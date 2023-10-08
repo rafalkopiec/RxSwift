@@ -6,7 +6,7 @@
 //  Copyright © 2016 Krunoslav Zaher. All rights reserved.
 //
 
-#if os(iOS) || os(tvOS)
+#if os(iOS) || os(visionOS) || os(xrOS) || os(tvOS)
 
 import UIKit
 import RxSwift
@@ -14,7 +14,7 @@ import RxSwift
 /**
  iOS only
  */
-#if os(iOS)
+#if os(iOS) || os(visionOS) || os(xrOS)
 extension Reactive where Base: UITabBar {
 
     /// Reactive wrapper for `delegate` message `tabBar(_:willBeginCustomizing:)`.

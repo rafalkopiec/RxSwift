@@ -6,7 +6,7 @@
 //  Copyright © 2015 Krunoslav Zaher. All rights reserved.
 //
 
-#if os(iOS) || os(tvOS)
+#if os(iOS) || os(visionOS) || os(xrOS) || os(tvOS)
 
 import Foundation
 import UIKit
@@ -25,12 +25,12 @@ open class TableViewSectionedDataSource<Section: SectionModelType>
     public typealias CanEditRowAtIndexPath = (TableViewSectionedDataSource<Section>, IndexPath) -> Bool
     public typealias CanMoveRowAtIndexPath = (TableViewSectionedDataSource<Section>, IndexPath) -> Bool
 
-    #if os(iOS)
+    #if os(iOS) || os(visionOS) || os(xrOS)
         public typealias SectionIndexTitles = (TableViewSectionedDataSource<Section>) -> [String]?
         public typealias SectionForSectionIndexTitle = (TableViewSectionedDataSource<Section>, _ title: String, _ index: Int) -> Int
     #endif
 
-    #if os(iOS)
+    #if os(iOS) || os(visionOS) || os(xrOS)
         public init(
                 configureCell: @escaping ConfigureCell,
                 titleForHeaderInSection: @escaping  TitleForHeaderInSection = { _, _ in nil },
@@ -154,7 +154,7 @@ open class TableViewSectionedDataSource<Section: SectionModelType>
 
     open var rowAnimation: UITableView.RowAnimation = .automatic
 
-    #if os(iOS)
+    #if os(iOS) || os(visionOS) || os(xrOS)
     open var sectionIndexTitles: SectionIndexTitles {
         didSet {
             #if DEBUG
@@ -209,7 +209,7 @@ open class TableViewSectionedDataSource<Section: SectionModelType>
         self._sectionModels.moveFromSourceIndexPath(sourceIndexPath, destinationIndexPath: destinationIndexPath)
     }
 
-    #if os(iOS)
+    #if os(iOS) || os(visionOS) || os(xrOS)
     open func sectionIndexTitles(for tableView: UITableView) -> [String]? {
         sectionIndexTitles(self)
     }

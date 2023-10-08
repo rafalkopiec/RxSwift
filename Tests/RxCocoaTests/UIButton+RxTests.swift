@@ -65,7 +65,7 @@ extension UIButtonTests {
     }
 }
 
-#if os(iOS)
+#if os(iOS) || os(visionOS) || os(xrOS)
 
     extension UIButtonTests {
         func testButton_tapDeallocates() {

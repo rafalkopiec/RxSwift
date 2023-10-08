@@ -11,7 +11,7 @@ import RxSwift
 import RxTest
 import XCTest
 
-#if os(iOS)
+#if os(iOS) || os(visionOS) || os(xrOS)
 
     final class UIDatePickerTests: RxTest {
 

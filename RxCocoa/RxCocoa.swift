@@ -12,7 +12,7 @@ import Foundation
 @_exported import RxRelay
 
 import RxSwift
-#if os(iOS)
+#if os(iOS) || os(visionOS) || os(xrOS)
     import UIKit
 #endif
 

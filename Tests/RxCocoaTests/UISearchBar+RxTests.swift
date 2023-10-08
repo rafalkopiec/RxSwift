@@ -102,7 +102,7 @@ extension UISearchBarTests {
         XCTAssertEqual(searchBar.selectedScopeButtonIndex, 1)
     }
     
-#if os(iOS)
+#if os(iOS) || os(visionOS) || os(xrOS)
     func testCancelButtonClicked() {
         let searchBar = self.newSearchBar()
         

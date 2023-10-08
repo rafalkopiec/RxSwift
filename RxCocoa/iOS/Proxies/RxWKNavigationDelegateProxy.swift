@@ -6,7 +6,7 @@
 //  Copyright © 2020 Krunoslav Zaher. All rights reserved.
 //
 
-#if os(iOS) || os(macOS)
+#if os(iOS) || os(visionOS) || os(xrOS) || os(macOS)
 
 import RxSwift
 import WebKit

@@ -10,7 +10,7 @@ import XCTest
 import RxSwift
 import RxCocoa
 
-#if os(iOS)
+#if os(iOS) || os(visionOS) || os(xrOS)
     import UIKit
 #elseif os(macOS)
     import Cocoa

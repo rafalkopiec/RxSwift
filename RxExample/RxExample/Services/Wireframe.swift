@@ -8,7 +8,7 @@
 
 import RxSwift
 
-#if os(iOS)
+#if os(iOS) || os(visionOS) || os(xrOS)
     import UIKit
 #elseif os(macOS)
     import Cocoa
@@ -29,14 +29,14 @@ class DefaultWireframe: Wireframe {
     static let shared = DefaultWireframe()
 
     func open(url: URL) {
-        #if os(iOS)
+        #if os(iOS) || os(visionOS) || os(xrOS)
             UIApplication.shared.open(url)
         #elseif os(macOS)
             NSWorkspace.shared.open(url)
         #endif
     }
 
-    #if os(iOS)
+    #if os(iOS) || os(visionOS) || os(xrOS)
     private static func rootViewController() -> UIViewController {
         // cheating, I know
         return UIApplication.shared.keyWindow!.rootViewController!
@@ -44,7 +44,7 @@ class DefaultWireframe: Wireframe {
     #endif
 
     static func presentAlert(_ message: String) {
-        #if os(iOS)
+        #if os(iOS) || os(visionOS) || os(xrOS)
             let alertView = UIAlertController(title: "RxExample", message: message, preferredStyle: .alert)
             alertView.addAction(UIAlertAction(title: "OK", style: .cancel) { _ in
             })
@@ -53,7 +53,7 @@ class DefaultWireframe: Wireframe {
     }
 
     func promptFor<Action : CustomStringConvertible>(_ message: String, cancelAction: Action, actions: [Action]) -> Observable<Action> {
-        #if os(iOS)
+        #if os(iOS) || os(visionOS) || os(xrOS)
         return Observable.create { observer in
             let alertView = UIAlertController(title: "RxExample", message: message, preferredStyle: .alert)
             alertView.addAction(UIAlertAction(title: cancelAction.description, style: .cancel) { _ in

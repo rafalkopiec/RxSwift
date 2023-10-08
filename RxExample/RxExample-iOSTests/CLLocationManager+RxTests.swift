@@ -62,7 +62,7 @@ extension CLLocationManagerTests {
         XCTAssertTrue(completed)
     }
 
-    #if os(iOS) || os(macOS)
+    #if os(iOS) || os(visionOS) || os(xrOS) || os(macOS)
 
     func testDidFinishDeferredUpdatesWithError() {
         var completed = false
@@ -106,7 +106,7 @@ extension CLLocationManagerTests {
 
     #endif
 
-    #if os(iOS)
+    #if os(iOS) || os(visionOS) || os(xrOS)
 
     func testDidPauseLocationUpdates() {
         var completed = false
@@ -216,7 +216,7 @@ extension CLLocationManagerTests {
 
     #endif
 
-    #if os(iOS) || os(macOS)
+    #if os(iOS) || os(visionOS) || os(xrOS) || os(macOS)
 
     func testDidDetermineStateForRegion() {
         var completed = false
@@ -315,7 +315,7 @@ extension CLLocationManagerTests {
 
     #endif
 
-    #if os(iOS)
+    #if os(iOS) || os(visionOS) || os(xrOS)
     func testDidRangeBeaconsInRegion() {
         
         var completed = false
@@ -404,7 +404,7 @@ extension CLLocationManagerTests {
 
         #if os(tvOS)
         let targetAuthorizationStatus = CLAuthorizationStatus.authorizedAlways
-        #elseif os(iOS)
+        #elseif os(iOS) || os(visionOS) || os(xrOS)
         let targetAuthorizationStatus = CLAuthorizationStatus.authorizedAlways
         #else
         let targetAuthorizationStatus = CLAuthorizationStatus.authorized

@@ -6,7 +6,7 @@
 //  Copyright © 2016 Krunoslav Zaher. All rights reserved.
 //
 
-#if os(iOS) || os(tvOS)
+#if os(iOS) || os(visionOS) || os(xrOS) || os(tvOS)
 
 import RxSwift
 import RxCocoa
@@ -20,7 +20,7 @@ final class UITabBarControllerTests: RxTest {
 /**
  iOS only
  */
-#if os(iOS)
+#if os(iOS) || os(visionOS) || os(xrOS)
 extension UITabBarControllerTests {
     func testWillBeginCustomizing() {
         let subject = createSubject()

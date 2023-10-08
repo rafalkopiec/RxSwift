@@ -6,7 +6,7 @@
 //  Copyright © 2015 Krunoslav Zaher. All rights reserved.
 //
 
-#if os(iOS) || os(tvOS)
+#if os(iOS) || os(visionOS) || os(xrOS) || os(tvOS)
     
 import Foundation
 import UIKit
@@ -22,7 +22,7 @@ open class RxTableViewSectionedAnimatedDataSource<Section: AnimatableSectionMode
     /// Animation configuration for data source
     public var animationConfiguration: AnimationConfiguration
 
-    #if os(iOS)
+    #if os(iOS) || os(visionOS) || os(xrOS)
         public init(
                 animationConfiguration: AnimationConfiguration = AnimationConfiguration(),
                 configureCell: @escaping ConfigureCell,
